@@ -1,5 +1,7 @@
 const plugin = require("tailwindcss/plugin");
 const colors = require("tailwindcss/colors");
+const mdx = require("@mdx-js/mdx");
+
 const round = (num) =>
   num
     .toFixed(7)
