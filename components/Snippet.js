@@ -2,7 +2,7 @@ import { useRouter } from "next/router";
 import { MDXProvider } from "@mdx-js/react";
 import Link from "next/link";
 import Head from "next/head";
-import { Layout } from "./Layout";
+import { Layout } from "components/Layout";
 
 export default function Snippet({ meta, snippets, children }) {
   const router = useRouter();

@@ -1,5 +1,5 @@
-import Nav from "./Nav";
-import { Spotify } from "./Spotify";
+import Nav from "components/Nav";
+import { Spotify } from "components/Spotify";
 
 export function Layout({ children }) {
   return (
