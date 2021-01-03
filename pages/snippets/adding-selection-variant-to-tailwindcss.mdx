@@ -1,0 +1,50 @@
+import Snippet from 'components/snippet'
+export {getStaticProps} from "lib/getSnippets"
+
+
+export const meta = {
+  title: `Adding a ::selection variant to Tailwind`,
+  description: ``,
+}
+
+export default (props) => <Snippet meta={meta} {...props}/>;
+
+# Adding a ::selection variant to Tailwind
+
+[Adding variants](https://tailwindcss.com/docs/pseudo-class-variants#creating-custom-variants) to Tailwind is a piece of 🍰. Variants are a way to create custom pseudo-classes. Tailwind has the commonly used ones added by default, like hover and focus.
+
+Let's explore how we can add one for the `::selection` pseudo-class. The `::selection` pseudo-class controls what happens to the element when you, well, select it. There are only three CSS properties that will work with `::selection`.
+- `color`
+- `background`
+- `text-shadow`
+
+Add this snippet to add & enable the variant:
+
+```js:tailwind.config.js
+const plugin = require("tailwindcss/plugin");
+
+module.exports = {
+  variants: {
+    // Enable the variant for the `backgroundColor` & `textColor` properties
+    backgroundColor: ["responsive", "hover", "focus", "active", "selection"],
+    textColor: ["responsive", "hover", "focus", "active", "selection"],
+  },
+  plugins: [
+    plugin(function ({ addVariant, e }) {
+      addVariant("selection", ({ modifySelectors, separator }) => {
+        modifySelectors(({ className }) => {
+          return `.${e(`selection${separator}${className}`)}::selection`;
+        });
+      });
+    }),
+  ],
+};
+
+```
+To use the variant you add the `selection:` prefix to the text and/or background color like so:
+```html:template
+<p class="selection:bg-yellow-900 selection:text-yellow-600">Select me!</p>
+```
+<p className="selection:bg-yellow-900 selection:text-yellow-600">Select me!</p>
+
+And that was it! I hope it was useful.

@@ -1,18 +1,26 @@
 @tailwind base;
-
-/* Write your own custom base styles here */
-
-/* Start purging... */
 @tailwind components;
-/* Stop purging. */
+@import url("https://dev-cats.github.io/code-snippets/JetBrainsMono.css");
+@import url('https://fonts.googleapis.com/css2?family=MuseoModerno&family=Trispace&display=swap');
+@import url('https://fonts.cdnfonts.com/css/code-saver');
 
-/* Write your own custom component styles here */
-.btn-blue {
-  @apply bg-blue-500 text-white font-bold py-2 px-4 rounded;
+@layer base {
+  .remark-code-wrapper {
+    @apply absolute right-0 py-1 px-2 bg-gray-700 select-none transform translate-x-10 -translate-y-2 rotate-12 hidden shadow-sm dark:bg-gray-600;
+  }
+  .remark-code-title {
+    @apply font-mono text-xs italic text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-teal-500;
+  }
+
+  @screen md {
+    .remark-code-wrapper {
+      @apply inline-flex;
+    }
+  }
+
+  .remark-code-wrapper + pre {
+    margin-top: 0 !important;
+  }
 }
 
-/* Start purging... */
 @tailwind utilities;
-/* Stop purging. */
-
-/* Your own custom utilities */
