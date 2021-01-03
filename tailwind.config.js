@@ -12,10 +12,10 @@ const rem = (px) => `${round(px / 16)}rem`;
 module.exports = {
   purge: {
     content: [
-      "./components/**/*.{js,ts,jsx,tsx}",
-      "./pages/**/*.{js,ts,jsx,tsx,mdx}",
-      "./next.config.js",
-      "./lib/**/*.js",
+      "components/**/*.{js,ts,jsx,tsx}",
+      "pages/**/*.{js,ts,jsx,tsx,mdx}",
+      "next.config.js",
+      "lib/**/*.js",
     ],
     options: {
       extractors: [
