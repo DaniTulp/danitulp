@@ -10,6 +10,7 @@ const round = (num) =>
 const rem = (px) => `${round(px / 16)}rem`;
 
 module.exports = {
+  darkMode: "media",
   purge: {
     content: [
       "components/**/*.{js,ts,jsx,tsx}",
@@ -38,7 +39,7 @@ module.exports = {
       ],
     },
   },
-  darkMode: "media",
+
   theme: {
     extend: {
       typography: (theme) => ({
