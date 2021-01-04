@@ -20,7 +20,7 @@ export default function Snippet({ meta, snippets, children }) {
       </Head>
       <article>
         <div className="flex flex-col lg:items-center xl:pb-0 xl:col-span-3 xl:row-span-2">
-          <div className="relative max-w-3xl pt-10 pb-8 font-sans prose md:prose-lg lg:prose-xl dark:prose-dark ">
+          <div className="relative max-w-3xl pb-8 font-sans prose md:prose-lg lg:prose-xl dark:prose-dark">
             <MDXProvider>{children}</MDXProvider>
           </div>
         </div>

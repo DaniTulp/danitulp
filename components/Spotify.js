@@ -3,7 +3,9 @@ import useSWR from "swr";
 import fetcher from "lib/fetcher";
 
 export function Spotify() {
-  const { data } = useSWR("/api/spotify", fetcher);
+  const { data } = useSWR("/api/spotify", fetcher, {
+    refreshInterval: 3600 * 3,
+  });
 
   return (
     <div className="flex items-start p-2 mb-8 border rounded-lg shadow w-72 dark:bg-gray-700 dark:border-gray-700">
@@ -13,6 +15,7 @@ export function Spotify() {
         height={60}
         width={60}
         src={data?.albumImageUrl || "/placeholder.jpg"}
+        key={data?.albumImageUrl}
       />
       <div className="flex flex-col items-start justify-center ml-3">
         <a

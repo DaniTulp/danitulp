@@ -24,16 +24,10 @@ module.exports = {
           extensions: ["mdx"],
           extractor: (content) => {
             content = mdx.sync(content);
-
             // Capture as liberally as possible, including things like `h-(screen-1.5)`
             const broadMatches = content.match(/[^<>"'`\s]*[^<>"'`\s:]/g) || [];
 
-            // Capture classes within other delimiters like .block(class="w-1/2") in Pug
-            const innerMatches =
-              content.match(/[^<>"'`\s.(){}[\]#=%]*[^<>"'`\s.(){}[\]#=%:]/g) ||
-              [];
-
-            return broadMatches.concat(innerMatches);
+            return broadMatches;
           },
         },
       ],
@@ -53,14 +47,6 @@ module.exports = {
               )},${theme("colors.teal.400")})`,
               backgroundClip: "text",
               color: theme("colors.transparent"),
-              "&::selection": {
-                color: theme("colors.yellow.600"),
-              },
-            },
-            p: {
-              "&::selection": {
-                color: theme("colors.yellow.600"),
-              },
             },
             a: {
               textDecoration: "none",
@@ -69,9 +55,6 @@ module.exports = {
               transform: `rotate(${theme("rotate.-2")})`,
               transitionProperty: theme("transitionProperty.transition"),
               transitionDuration: theme("transitionDuration.150"),
-              "&::selection": {
-                color: theme("colors.yellow.600"),
-              },
               "&:hover": {
                 transform: `rotate(${theme("rotate.0")})`,
               },

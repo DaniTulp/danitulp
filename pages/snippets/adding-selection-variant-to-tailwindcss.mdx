@@ -25,9 +25,11 @@ const plugin = require("tailwindcss/plugin");
 
 module.exports = {
   variants: {
-    // Enable the variant for the `backgroundColor` & `textColor` properties
-    backgroundColor: ["responsive", "hover", "focus", "active", "selection"],
-    textColor: ["responsive", "hover", "focus", "active", "selection"],
+    extend: {
+      // Enable the variant for the `backgroundColor` & `textColor` properties
+      backgroundColor: ["selection"],
+      textColor: ["selection"],
+    }
   },
   plugins: [
     plugin(function ({ addVariant, e }) {
@@ -43,8 +45,8 @@ module.exports = {
 ```
 To use the variant you add the `selection:` prefix to the text and/or background color like so:
 ```html:template
-<p class="selection:bg-yellow-900 selection:text-yellow-600">Select me!</p>
+<p class="selection:bg-purple-900 selection:text-purple-600">Select me!</p>
 ```
-<p className="selection:bg-yellow-900 selection:text-yellow-600">Select me!</p>
+<p className="selection:bg-purple-900 selection:text-purple-600">Select me!</p>
 
 And that was it! I hope it was useful.

@@ -1,15 +1,44 @@
 @tailwind base;
 @tailwind components;
 @import url("https://dev-cats.github.io/code-snippets/JetBrainsMono.css");
-@import url('https://fonts.googleapis.com/css2?family=MuseoModerno&family=Trispace&display=swap');
-@import url('https://fonts.cdnfonts.com/css/code-saver');
+@import url("https://fonts.googleapis.com/css2?family=MuseoModerno&family=Trispace&display=swap");
+@import url("https://fonts.cdnfonts.com/css/code-saver");
 
 @layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  ::selection {
+    @apply text-yellow-600 bg-transparent;
+  }
   .remark-code-wrapper {
     @apply absolute right-0 py-1 px-2 bg-gray-700 select-none transform translate-x-10 -translate-y-2 rotate-12 hidden shadow-sm dark:bg-gray-600;
   }
   .remark-code-title {
-    @apply font-mono text-xs italic text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-teal-500;
+    @apply font-mono text-sm italic text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-teal-500 font-semibold;
+  }
+
+  .link {
+    @apply transition duration-150 hover:rotate-0 transform;
+  }
+
+  .link:before {
+    @apply absolute top-3 left-2 w-full opacity-0 bg-gradient-to-br from-purple-400 to-teal-500 transition duration-150;
+    content: "";
+    height: 50%;
+    z-index: -1;
+  }
+
+  .active {
+    @apply -rotate-2 transition duration-150 hover:rotate-0 transform text-purple-600 dark:text-purple-300;
+  }
+
+  .active:before {
+    @apply opacity-25;
+  }
+
+  .link:hover:before {
+    @apply opacity-50;
   }
 
   @screen md {

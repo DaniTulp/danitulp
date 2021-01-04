@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Link from "./Link";
 
 const links = [
   { href: "/snippets", label: "Snippets" },
@@ -9,21 +9,19 @@ const links = [
 export default function Nav() {
   return (
     <nav
-      className="sticky top-0 z-10 bg-white shadow-sm dark:bg-gray-800 "
+      className="sticky top-0 z-10 bg-white bg-opacity-75 shadow-sm dark:shadow-lg dark:bg-gray-800"
       style={{
         backdropFilter: "saturate(180%) blur(20px)",
       }}
     >
-      <ul className="flex items-center justify-between p-8">
-        <ul className="flex items-center justify-between space-x-4">
-          {links.map(({ href, label }) => (
-            <li key={`${href}${label}`}>
-              <Link href={href}>
-                <a className="no-underline">{label}</a>
-              </Link>
-            </li>
-          ))}
-        </ul>
+      <ul className="flex items-center justify-between max-w-3xl p-8 mx-auto space-x-4">
+        {links.map(({ label, href, ...props }) => (
+          <li key={`${href}${label}`}>
+            <Link href={href} activeClassName="active" {...props}>
+              <a className="inline-block no-underline link">{label}</a>
+            </Link>
+          </li>
+        ))}
       </ul>
     </nav>
   );
