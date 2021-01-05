@@ -3,9 +3,7 @@ import useSWR from "swr";
 import fetcher from "lib/fetcher";
 
 export function Spotify() {
-  const { data } = useSWR("/api/spotify", fetcher, {
-    refreshInterval: 3600 * 3,
-  });
+  const { data } = useSWR("/api/spotify", fetcher);
 
   return (
     <div className="flex items-start p-2 mb-8 border rounded-lg shadow w-72 dark:bg-gray-700 dark:border-gray-700">

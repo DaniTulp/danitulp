@@ -27,7 +27,7 @@ export default function IndexPage() {
             <a
               className="link active"
               target="_blank"
-              rel="noopener"
+              rel="noopener noreferrer"
               href="mailto:danitulp@gmail.com"
             >
               Drop me a line!
