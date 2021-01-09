@@ -6,7 +6,7 @@ export function Spotify() {
   const { data } = useSWR("/api/spotify", fetcher);
 
   return (
-    <div className="flex items-start p-2 mb-8 border rounded-lg shadow w-72 dark:bg-gray-700 dark:border-gray-700">
+    <div className="flex items-start p-2 mb-8 border rounded-lg shadow dark:shadow-lg w-72 dark:bg-gray-700 dark:border-gray-700">
       <Image
         alt="Spotify"
         className="rounded-lg w-60 h-60"

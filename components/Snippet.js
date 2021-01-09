@@ -16,7 +16,6 @@ export default function Snippet({ meta, snippets, children }) {
     <Layout>
       <Head>
         <title>Snippets - {meta.metaTitle || meta.title}</title>
-        <link rel="icon" href="/favicon.svg" />
       </Head>
       <article>
         <div className="flex flex-col lg:items-center xl:pb-0 xl:col-span-3 xl:row-span-2">

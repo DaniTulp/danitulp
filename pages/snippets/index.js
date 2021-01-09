@@ -9,8 +9,7 @@ export default function SnippetsPage() {
       <Head>
         <title>Snippets</title>
       </Head>
-
-      <div className="flex flex-col items-center max-w-3xl mx-auto">
+      <div className="flex flex-col max-w-2xl mx-auto">
         <div className="prose md:prose-lg lg:prose-xl dark:prose-dark">
           <h1 className="text-4xl font-bold font-display">Snippets</h1>
           <p>
@@ -18,7 +17,7 @@ export default function SnippetsPage() {
             ideas.
           </p>
         </div>
-        <ul className="self-start mt-4 list-none">
+        <ul className="mt-4 list-none">
           {snippets.map((snippet) => (
             <li key={snippet.link}>
               <Link href={snippet.link}>
