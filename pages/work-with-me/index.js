@@ -1,6 +1,7 @@
 import { Layout } from "components/Layout";
 import ActiveLink from "components/Link";
 import Head from "next/head";
+import { Profile } from "components/Profile";
 
 export default function IndexPage() {
   return (
@@ -8,8 +9,8 @@ export default function IndexPage() {
       <Head>
         <title>Dani Tulp - Developer</title>
       </Head>
-      <div className="flex flex-col items-center">
-        <div className="prose md:prose-lg lg:prose-xl dark:prose-dark">
+      <div className="flex flex-col">
+        <div className="self-center prose md:prose-lg lg:prose-xl dark:prose-dark">
           <h1>About</h1>
           <p>
             Hey! I'm Dani 🌷. A developer and creator, this site is my personal

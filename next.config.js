@@ -1,6 +1,13 @@
 const mdxPrism = require("mdx-prism");
 const visit = require("unist-util-visit");
 
+const withTM = require("next-transpile-modules")([
+  "@react-three/drei",
+  "three",
+  "react-spring/three",
+  // "postprocessing",
+]);
+
 const tokenClassNames = {
   tag: "text-code-red",
   "attr-name": "text-code-yellow",
@@ -34,11 +41,13 @@ const withMDX = require("@next/mdx")({
     ],
   },
 });
-module.exports = withMDX({
-  images: {
-    domains: [
-      "i.scdn.co", // Spotify Album Art
-    ],
-  },
-  pageExtensions: ["js", "jsx", "mdx"],
-});
+module.exports = withTM(
+  withMDX({
+    images: {
+      domains: [
+        "i.scdn.co", // Spotify Album Art
+      ],
+    },
+    pageExtensions: ["js", "jsx", "mdx"],
+  })
+);

@@ -1,11 +1,6 @@
 import { Layout } from "components/Layout";
 import Head from "next/head";
-import dynamic from "next/dynamic";
-import { Box } from "components/Three/Scene";
-
-const Scene = dynamic(() => import("components/Three/Scene"), {
-  ssr: false,
-});
+import { Profile } from "components/Profile";
 
 export default function IndexPage() {
   return (
@@ -13,18 +8,22 @@ export default function IndexPage() {
       <Head>
         <title>Dani Tulp - Developer</title>
       </Head>
-      <div className="flex flex-col flex-1 h-full pt-20 space-y-8">
-        <h1 className="text-5xl text-transparent">
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-teal-500">
-            Dani Tulp
+      <article className="flex flex-col flex-1 h-full mx-auto space-y-8">
+        <h1 className="text-4xl text-transparent md:text-5xl">
+          <span className="text-transparent bg-clip-text bg-gradient-to-br from-purple-400 to-teal-400">
+            Hey I'm Dani Tulp
           </span>
         </h1>
-        <div className="flex-1 h-full border-2 rounded dark:border-gray-700">
-          <Scene>
-            <Box position={[4.2, 0, 0]} />
-          </Scene>
+        <div className="flex flex-col items-center sm:items-start sm:flex-row sm:space-x-4">
+          <Profile />
+          <p className="max-w-xl text-lg">
+            <span className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-br from-purple-400 to-teal-400">
+              W
+            </span>
+            elcome to my little space on the internet.
+          </p>
         </div>
-      </div>
+      </article>
     </Layout>
   );
 }
